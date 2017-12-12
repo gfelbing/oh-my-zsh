@@ -81,6 +81,9 @@ prompt_end() {
   fi
   echo -n "%{%f%}"
   CURRENT_BG=''
+  printf "\n"
+  prompt_segment blue black "$"
+  prompt_segment black default
 }
 
 ### Prompt components
