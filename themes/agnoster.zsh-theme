@@ -80,7 +80,7 @@ prompt_end() {
     echo -n "%{%k%}"
   fi
   echo -n "%{%f%}"
-  CURRENT_BG=''
+  CURRENT_BG='NONE'
   printf "\n"
   prompt_segment blue black "$"
   prompt_segment black default
@@ -240,6 +240,10 @@ prompt_aws() {
   esac
 }
 
+prompt_time() {
+  prompt_segment green black "$(date '+%Y-%m-%d %H:%M:%S')"
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -247,6 +251,7 @@ build_prompt() {
   prompt_virtualenv
   prompt_aws
   prompt_context
+  prompt_time
   prompt_dir
   prompt_git
   prompt_bzr
